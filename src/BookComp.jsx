@@ -1,0 +1,7 @@
+import { useEffect } from "react";
+function BookComp({ search }) {
+  const resp = 0;
+  console.log(search.text);
+  return <p>{search.text}</p>;
+}
+export default BookComp;

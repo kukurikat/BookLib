@@ -1,35 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import BookComp from "./BookComp";
+import { useState, useEffect } from "react";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [bookSerach, setBookSerach] = useState("");
+  const [click, setClick] = useState(0);
+  const [searchFetch, setSearchFetch] = useState({});
+  useEffect(() => {
+    setSearchFetch({
+      text: bookSerach,
+    });
+  }, [click]);
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="progDiv">
+        <BookComp search={searchFetch} />
+        <input
+          type="text"
+          value={bookSerach}
+          onChange={(e) => {
+            setBookSerach(e.target.value);
+          }}
+        />
+        <input type="date" />
+        <button onClick={(e) => setClick((c) => c + 1)}>asdad</button>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
