@@ -1,7 +1,11 @@
-import { useEffect } from "react";
-function BookComp({ search }) {
+import "./css/BookComp.css";
+function BookComp({ book }) {
   const resp = 0;
-  console.log(search);
-  return <p>{search.text}</p>;
+  return (
+    <div className="bookCard">
+      <img src={`${book.volumeInfo.imageLinks.thumbnail}`} className="image" />
+      <p className="title">{book.volumeInfo.title}</p>
+    </div>
+  );
 }
 export default BookComp;

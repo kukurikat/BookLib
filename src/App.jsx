@@ -1,31 +1,54 @@
-import BookComp from "./BookComp";
+import BookComp from "./BookComp.jsx";
 import { useState, useEffect } from "react";
-import "./App.css";
+import "./css/App.css";
+import { getBook, getDefault } from "./Api.js";
 
 function App() {
-  const [bookSerach, setBookSerach] = useState("");
+  const [books, setbooks] = useState([]);
   const [click, setClick] = useState(0);
   const [searchFetch, setSearchFetch] = useState({});
   useEffect(() => {
-    setSearchFetch({
-      text: bookSerach,
+    getBook(searchFetch).then((result) => {
+      setbooks(result);
     });
+    console.log(getBook(searchFetch));
+    setSearchFetch("");
   }, [click]);
+
+  function randomBook() {
+    getDefault().then((result) => {
+      setbooks(result);
+    });
+  }
   return (
-    <>
-      <div className="progDiv">
-        <BookComp search={searchFetch} />
+    <div className="home">
+      <div className="navbar">
+        <p className="homeButton" onClick={randomBook}>
+          Home
+        </p>
         <input
+          className="inputfield"
           type="text"
-          value={bookSerach}
+          id="inputBook"
+          placeholder="Enter the book"
+          value={searchFetch.text || ""}
           onChange={(e) => {
-            setBookSerach(e.target.value);
+            setSearchFetch({ text: e.target.value });
           }}
         />
-        <input type="date" />
-        <button onClick={(e) => setClick((c) => c + 1)}>asdad</button>
+        <button
+          className="searchButton"
+          onClick={(e) => setClick((c) => c + 1)}
+        >
+          search
+        </button>
       </div>
-    </>
+      <div className="grid">
+        {books.map((bok) => (
+          <BookComp book={bok} key={bok.id} />
+        ))}
+      </div>
+    </div>
   );
 }
 
