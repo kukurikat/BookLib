@@ -12,7 +12,7 @@ export async function getBook(searchObj) {
 
     if (data.totalItems === 0) {
       const resp = await fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=harry&orderBy=relevance&key=AIzaSyBVQGRl19itlaJGNDJSN-AgNdyCw1HpLgU`,
+        `https://www.googleapis.com/books/v1/volumes?q=Gay&orderBy=relevance&key=AIzaSyBVQGRl19itlaJGNDJSN-AgNdyCw1HpLgU`,
         {
           method: "GET",
           body: JSON.stringify(),
@@ -27,6 +27,7 @@ export async function getBook(searchObj) {
 }
 
 export async function getDefault() {
+  let i = 0;
   while (true) {
     const wordGet = await fetch(`https://random-word-api.herokuapp.com/word`);
     const word = await wordGet.json();
@@ -37,10 +38,22 @@ export async function getDefault() {
         body: JSON.stringify(),
       }
     );
-
+    i++;
     const data = await resp.json();
     console.log(data);
     if (data.totalItems >= 1) {
+      return await data.items;
+    }
+    if (i > 5) {
+      const resp = await fetch(
+        `https://www.googleapis.com/books/v1/volumes?q=Gay&orderBy=relevance&key=AIzaSyBVQGRl19itlaJGNDJSN-AgNdyCw1HpLgU`,
+        {
+          method: "GET",
+          body: JSON.stringify(),
+        }
+      );
+      const data = await resp.json();
+      console.log(data.totalItems);
       return await data.items;
     }
   }

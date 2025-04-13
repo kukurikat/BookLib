@@ -1,0 +1,35 @@
+.inputfield {
+  position: relative;
+  width: 40%; /* Make the input field long */
+  margin: 0 auto; /* Center horizontally */
+  display: block; /* Ensure it behaves as a block element */
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-size: 18px;
+  padding: 10px 15px;
+  margin-top: 80px;
+  width: calc(90% - 60px); /* Adjust width to account for button */
+  display: inline-block;
+}
+
+.searchButton {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  margin-top: 66px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  display: inline-block;
+  transform: translateY(50%); /* Center vertically relative to input field */
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Ensure only 2 objects per line */
+  gap: 1.5rem;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 50px; /* Increased to push the grid content further down by 20px */
+}

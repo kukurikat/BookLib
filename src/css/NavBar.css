@@ -1,0 +1,32 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0; /* Ensure it starts from the very left */
+  width: 100vw; /* Use viewport width to cover the entire screen */
+  background-color: #46617b; /* Slightly darker gray background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  z-index: 1000; /* Ensure it stays on top */
+  height: 70px; /* Increased height */
+  padding: 0 20px; /* Optional: Add horizontal padding */
+}
+.homeButton {
+  position: absolute;
+  left: 20px;
+  top: 10%; /* Adjusted to place it higher */
+  transform: translateY(-50%);
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.FavouritesButton {
+  position: absolute;
+  right: 50px;
+  top: 50%; /* Adjusted to place it higher */
+  transform: translateY(-50%);
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 30px;
+  cursor: pointer;
+}

@@ -1,4 +1,4 @@
-import "./css/BookComp.css";
+import "../css/BookComp.css";
 function BookComp({ book }) {
   const resp = 0;
   return (

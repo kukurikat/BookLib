@@ -1,53 +1,17 @@
-import BookComp from "./BookComp.jsx";
-import { useState, useEffect } from "react";
+import Home from "./Pages/Home.jsx";
+import { Routes, Route, Link } from "react-router-dom";
 import "./css/App.css";
-import { getBook, getDefault } from "./Api.js";
+import Navbar from "./components/NavBar.jsx";
+import Favoutites from "./Pages/Favourites.jsx";
 
 function App() {
-  const [books, setbooks] = useState([]);
-  const [click, setClick] = useState(0);
-  const [searchFetch, setSearchFetch] = useState({});
-  useEffect(() => {
-    getBook(searchFetch).then((result) => {
-      setbooks(result);
-    });
-    console.log(getBook(searchFetch));
-    setSearchFetch("");
-  }, [click]);
-
-  function randomBook() {
-    getDefault().then((result) => {
-      setbooks(result);
-    });
-  }
   return (
     <div className="home">
-      <div className="navbar">
-        <p className="homeButton" onClick={randomBook}>
-          Home
-        </p>
-        <input
-          className="inputfield"
-          type="text"
-          id="inputBook"
-          placeholder="Enter the book"
-          value={searchFetch.text || ""}
-          onChange={(e) => {
-            setSearchFetch({ text: e.target.value });
-          }}
-        />
-        <button
-          className="searchButton"
-          onClick={(e) => setClick((c) => c + 1)}
-        >
-          search
-        </button>
-      </div>
-      <div className="grid">
-        {books.map((bok) => (
-          <BookComp book={bok} key={bok.id} />
-        ))}
-      </div>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/favourites" element={<Favoutites />} />
+      </Routes>
     </div>
   );
 }
