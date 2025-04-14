@@ -37,7 +37,9 @@ function Home() {
           setSearchFetch({ text: e.target.value });
         }}
       />
-      <p onClick={randomBook}>Wish me luck</p>
+      <button onClick={randomBook} className="wishluckbutton">
+        Im lucky
+      </button>
       <button className="searchButton" onClick={(e) => setClick((c) => c + 1)}>
         search
       </button>
@@ -48,7 +50,7 @@ function Home() {
       ) : (
         <div className="grid">
           {books.map((bok) => (
-            <BookComp book={bok} key={bok.id} />
+            <BookComp book={bok} key={bok.id} className="card" />
           ))}
         </div>
       )}

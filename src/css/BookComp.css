@@ -1,11 +1,11 @@
 .bookCard {
-  background-color: #919191; /* Light background color */
+  background-color: #4a473f; /* Light background color */
   border-radius: 12px; /* Rounded edges */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   overflow: hidden; /* Ensures content stays within rounded edges */
   text-align: center; /* Center-align text */
-  width: 400px; /* Increased width */
-  height: 350px;
+  width: 360px; /* Increased width */
+  height: 450px;
   margin: 24px auto; /* Adjusted margin for spacing */
   display: flex; /* Enable Flexbox */
   flex-direction: column; /* Stack children vertically */
@@ -13,17 +13,18 @@
   justify-content: center; /* Center children vertically */
 }
 
-.card img {
-  width: 100%; /* Make image responsive */
-  height: auto; /* Maintain aspect ratio */
+.image {
+  width: 250px; /* Make image responsive */
+  height: 300px; /* Maintain aspect ratio */
   display: block; /* Remove inline spacing */
-  margin-top: 50px; /* Add gap between top of the image and card */
+  padding-top: 10px;
+  align-content: center;
 }
 
-.card .title {
+.title {
   padding: 20px; /* Increased spacing around text */
   font-size: 20px; /* Increased font size */
-  color: #fff; /* White text color */
-  font-family: "Arial", sans-serif; /* Set font family */
-  font-weight: bold; /* Make text bold */
+  color: #f8c080; /* White text color */
+  font-family: "Serif"; /* Updated font family */
+  font-weight: 500; /* Adjusted font weight */
 }

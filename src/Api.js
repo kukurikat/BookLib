@@ -1,7 +1,7 @@
 export async function getBook(searchObj) {
   try {
     const resp = await fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=${searchObj.text}&orderBy=relevance&key=AIzaSyBVQGRl19itlaJGNDJSN-AgNdyCw1HpLgU`,
+      `https://www.googleapis.com/books/v1/volumes?q=${searchObj.text}&orderBy=relevance&maxResults=16&key=AIzaSyBVQGRl19itlaJGNDJSN-AgNdyCw1HpLgU`,
       {
         method: "GET",
         body: JSON.stringify(),
@@ -12,7 +12,7 @@ export async function getBook(searchObj) {
 
     if (data.totalItems === 0) {
       const resp = await fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=Gay&orderBy=relevance&key=AIzaSyBVQGRl19itlaJGNDJSN-AgNdyCw1HpLgU`,
+        `https://www.googleapis.com/books/v1/volumes?q=Gay&orderBy=relevance&maxResults=16&key=AIzaSyBVQGRl19itlaJGNDJSN-AgNdyCw1HpLgU`,
         {
           method: "GET",
           body: JSON.stringify(),
@@ -32,7 +32,7 @@ export async function getDefault() {
     const wordGet = await fetch(`https://random-word-api.herokuapp.com/word`);
     const word = await wordGet.json();
     const resp = await fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=${word[0]}adw&orderBy=relevance&key=AIzaSyBVQGRl19itlaJGNDJSN-AgNdyCw1HpLgU`,
+      `https://www.googleapis.com/books/v1/volumes?q=${word[0]}adw&orderBy=relevance&maxResults=16&key=AIzaSyBVQGRl19itlaJGNDJSN-AgNdyCw1HpLgU`,
       {
         method: "GET",
         body: JSON.stringify(),
@@ -46,7 +46,7 @@ export async function getDefault() {
     }
     if (i > 5) {
       const resp = await fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=Gay&orderBy=relevance&key=AIzaSyBVQGRl19itlaJGNDJSN-AgNdyCw1HpLgU`,
+        `https://www.googleapis.com/books/v1/volumes?q=Gay&orderBy=relevance&maxResults=15&key=AIzaSyBVQGRl19itlaJGNDJSN-AgNdyCw1HpLgU`,
         {
           method: "GET",
           body: JSON.stringify(),

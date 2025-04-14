@@ -5,7 +5,9 @@ function Navbar() {
   return (
     <div className="navbar">
       <p className="homeButton">
-        <Link to="/">Home</Link>
+        <Link to="/" className="Button">
+          Home
+        </Link>
       </p>
       <Link className="FavouritesButton" to="/favourites">
         Favourites
