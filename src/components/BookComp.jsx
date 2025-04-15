@@ -1,5 +1,6 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import "../css/BookComp.css";
+import { checkIfliked, saveToFav, deleteFromSaved } from "../Save";
 function BookComp({ book }) {
   const resp = 0;
   const buttonRef = useRef(null);
@@ -10,11 +11,22 @@ function BookComp({ book }) {
     if (butn.classList.contains("likeButton")) {
       butn.classList.remove("likeButton");
       butn.classList.add("likedButton");
+      saveToFav(book);
     } else {
+      deleteFromSaved(book);
+      console.log(book);
       butn.classList.remove("likedButton");
       butn.classList.add("likeButton");
     }
   };
+
+  useEffect(() => {
+    let butn = buttonRef.current;
+    if (checkIfliked(book)) {
+      butn.classList.remove("likeButton");
+      butn.classList.add("likedButton");
+    }
+  }, []);
 
   return (
     <div className="bookCard">

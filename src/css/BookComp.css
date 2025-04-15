@@ -1,52 +1,56 @@
 .bookCard {
-  background-color: #4a473f; /* Light background color */
-  border-radius: 12px; /* Rounded edges */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  overflow: hidden; /* Ensures content stays within rounded edges */
-  text-align: center; /* Center-align text */
-  width: 360px; /* Increased width */
-  height: 450px;
-  margin: 24px auto; /* Adjusted margin for spacing */
-  display: flex; /* Enable Flexbox */
-  flex-direction: column; /* Stack children vertically */
-  align-items: center; /* Center children horizontally */
-  justify-content: center; /* Center children vertically */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation */
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5); /* Slightly bigger shadow under the bookCard */
+  background-color: #4a473f;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  width: 90%; /* Adjust width to be responsive */
+  max-width: 360px; /* Limit maximum width */
+  height: auto; /* Allow height to adjust */
+  aspect-ratio: 4 / 5; /* Maintain aspect ratio */
+  margin: 24px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5);
 }
 
 .bookCard:hover {
-  transform: translateY(-10px); /* Lift up effect */
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+  transform: translateY(-10px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
 .image {
-  width: 250px; /* Make image responsive */
-  height: 300px; /* Maintain aspect ratio */
-  display: block; /* Remove inline spacing */
+  width: 80%; /* Make image responsive */
+  max-width: 250px; /* Limit maximum width */
+  height: auto; /* Maintain aspect ratio */
+  display: block;
   padding-top: 10px;
   align-content: center;
 }
 
 .title {
-  padding: 20px; /* Increased spacing around text */
-  font-size: 20px; /* Increased font size */
-  color: #f8c080; /* White text color */
-  font-family: "Serif"; /* Updated font family */
-  font-weight: 500; /* Adjusted font weight */
+  padding: 1rem; /* Use relative units */
+  font-size: 1.25rem; /* Use relative font size */
+  color: #f8c080;
+  font-family: "Serif";
+  font-weight: 500;
 }
 
-.likeButton {
+.likeButton,
+.likedButton {
   position: relative;
-  top: 20px;
-  left: 130px;
+  top: 1rem;
+  left: auto; /* Center align */
   color: #f8c080;
   font-size: 1.5rem;
   padding: 0.5rem;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 2.5rem; /* Use relative units */
+  height: 2.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,18 +58,29 @@
 }
 
 .likedButton {
-  position: relative;
-  top: 20px;
-  left: 130px;
-  font-size: 1.5rem;
-  padding: 0.5rem;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.2s;
-  background-color: rgb(171, 53, 53); /* Change to red when clicked */
+  background-color: rgb(171, 53, 53);
   color: aliceblue;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+  .bookCard {
+    width: 95%; /* Adjust width for smaller screens */
+  }
+
+  .image {
+    width: 60%; /* Shrink image for smaller screens */
+    max-width: 150px; /* Reduce maximum width */
+  }
+
+  .title {
+    font-size: 1rem; /* Reduce font size */
+  }
+
+  .likeButton,
+  .likedButton {
+    width: 2rem; /* Shrink button size */
+    height: 2rem;
+    font-size: 1.25rem; /* Adjust font size */
+  }
 }

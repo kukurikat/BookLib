@@ -1,54 +1,69 @@
 .inputfield {
   position: relative;
-  width: 50%; /* Make the input field long */
-  margin: 0 auto; /* Center horizontally */
+  width: 40%; /* Reduced width for smaller appearance */
+  margin: 0 auto;
   border-radius: 8px;
   transition: all 0.3s ease;
-  font-size: 18px;
-  padding: 10px 15px;
-  margin-top: 80px;
-  display: block; /* Changed to block for proper centering */
-  text-align: center; /* Align text inside the input field to the center */
+  font-size: 16px; /* Reduced font size */
+  padding: 8px 12px; /* Reduced padding */
+  margin-top: 80px; /* Increased margin for better spacing */
+  display: block;
+  text-align: center;
+}
+
+.searchButton,
+.wishluckbutton {
+  position: absolute;
+  top: 18%;
+  padding: 8px 12px; /* Reduced padding */
+  border-radius: 8px;
+  font-size: 16px; /* Reduced font size */
+  cursor: pointer;
+  text-align: center;
 }
 
 .searchButton {
-  position: absolute;
-  top: 20%;
-  left: 45%;
-  transform: translate(
-    -50%,
-    -50%
-  ); /* Center both vertically and horizontally */
-  margin-top: 0;
-  padding: 10px 15px;
-  border-radius: 8px;
-  font-size: 18px;
-  cursor: pointer;
-  text-align: center; /* Align text inside the button to the center */
+  left: 42%; /* Adjusted position */
 }
 
 .wishluckbutton {
-  position: absolute;
-  top: 20%;
-  left: 55%;
-  transform: translate(
-    -50%,
-    -50%
-  ); /* Center both vertically and horizontally */
-  margin-top: 0;
-  padding: 10px 15px;
-  border-radius: 8px;
-  font-size: 18px;
-  cursor: pointer;
-  text-align: center; /* Align text inside the button to the center */
+  left: 52%; /* Adjusted position */
 }
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 0.5fr); /* Ensure only 2 objects per line */
-  gap: 0.5rem; /* Reduced gap to make the grid layout appear slimmer */
-  padding: 0.5rem; /* Reduced padding for a slimmer appearance */
+  grid-template-columns: repeat(4, 0.5fr);
+  gap: 0.5rem;
+  padding: 0.5rem;
   width: 100%;
   box-sizing: border-box;
-  margin-top: 50px; /* Increased to push the grid content further down by 20px */
+  margin-top: 50px;
   align-self: center;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .inputfield {
+    width: 60%; /* Further reduce width */
+    font-size: 14px; /* Smaller font size */
+    padding: 6px 10px; /* Smaller padding */
+  }
+
+  .searchButton,
+  .wishluckbutton {
+    font-size: 14px; /* Smaller font size */
+    padding: auto;
+    width: 30;
+    margin-left: 10px; /* Added margin to create more space between buttons */
+    top: 15%;
+  }
+  .searchButton {
+    left: 35%;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* Only 2 items per row */
+    gap: 0.25rem; /* Reduced gap for smaller screens */
+    margin-top: 30px; /* Adjusted margin */
+  }
 }

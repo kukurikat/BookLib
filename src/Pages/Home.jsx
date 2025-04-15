@@ -52,7 +52,7 @@ function Home() {
       ) : (
         <div className="grid">
           {books.map((bok) => (
-            <BookComp book={bok} key={bok.id} className="card" />
+            <BookComp book={bok} key={bok.etag} className="card" />
           ))}
         </div>
       )}
