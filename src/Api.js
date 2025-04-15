@@ -40,11 +40,12 @@ export async function getDefault() {
     );
     i++;
     const data = await resp.json();
-    console.log(data);
+
     if (data.totalItems >= 1) {
+      console.log(data);
       return await data.items;
     }
-    if (i > 5) {
+    if (i > 3) {
       const resp = await fetch(
         `https://www.googleapis.com/books/v1/volumes?q=Gay&orderBy=relevance&maxResults=15&key=AIzaSyBVQGRl19itlaJGNDJSN-AgNdyCw1HpLgU`,
         {

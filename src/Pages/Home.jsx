@@ -19,11 +19,13 @@ function Home() {
   }, [click]);
 
   function randomBook() {
-    setLoading(true);
-    getDefault().then((result) => {
-      setbooks(result);
-      setLoading(false);
-    });
+    if (loading == false) {
+      setLoading(true);
+      getDefault().then((result) => {
+        setbooks(result);
+        setLoading(false);
+      });
+    }
   }
   return (
     <>
