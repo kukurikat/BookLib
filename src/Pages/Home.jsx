@@ -1,5 +1,5 @@
 import BookComp from "../components/BookComp.jsx";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { getBook, getDefault } from "../Api.js";
 import "../css/Home.css";
 function Home() {
@@ -37,6 +37,11 @@ function Home() {
         value={searchFetch.text || ""}
         onChange={(e) => {
           setSearchFetch({ text: e.target.value });
+        }}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            setClick((c) => c + 1);
+          }
         }}
       />
       <button onClick={randomBook} className="wishluckbutton">

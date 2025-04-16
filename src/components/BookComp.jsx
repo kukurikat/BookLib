@@ -1,9 +1,10 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "../css/BookComp.css";
 import { checkIfliked, saveToFav, deleteFromSaved } from "../Save";
 function BookComp({ book }) {
   const resp = 0;
   const buttonRef = useRef(null);
+  const [click, setClick] = useState(0);
   let name = book.volumeInfo.title;
 
   const handleClick = () => {
@@ -13,11 +14,12 @@ function BookComp({ book }) {
       butn.classList.add("likedButton");
       saveToFav(book);
     } else {
+      console.log("delete");
       deleteFromSaved(book);
-      console.log(book);
       butn.classList.remove("likedButton");
       butn.classList.add("likeButton");
     }
+    setClick((c) => c + 1);
   };
 
   useEffect(() => {
@@ -26,7 +28,7 @@ function BookComp({ book }) {
       butn.classList.remove("likeButton");
       butn.classList.add("likedButton");
     }
-  }, []);
+  }, [click]);
 
   return (
     <div className="bookCard">
@@ -42,6 +44,7 @@ function BookComp({ book }) {
         />
       </div>
       <p className="title">{name}</p>
+      <p className="date">{book.volumeInfo?.publishedDate || "No info"}</p>
     </div>
   );
 }

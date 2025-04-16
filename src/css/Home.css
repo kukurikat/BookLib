@@ -42,7 +42,35 @@
 }
 
 /* Media query for smaller screens */
-@media (max-width: 768px) {
+
+/* Media query for smaller screens */
+@media (max-width: 1250px) {
+  .inputfield {
+    width: 60%; /* Further reduce width */
+    font-size: 14px; /* Smaller font size */
+    padding: 6px 10px; /* Smaller padding */
+  }
+
+  .searchButton,
+  .wishluckbutton {
+    font-size: 14px; /* Smaller font size */
+    padding: auto;
+    width: 30;
+    margin-left: 10px; /* Added margin to create more space between buttons */
+    top: 15%;
+  }
+  .searchButton {
+    left: 35%;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr); /* Only 2 items per row */
+    gap: 0.25rem; /* Reduced gap for smaller screens */
+    margin-top: 30px; /* Adjusted margin */
+  }
+}
+
+@media (max-width: 935px) {
   .inputfield {
     width: 60%; /* Further reduce width */
     font-size: 14px; /* Smaller font size */
@@ -63,6 +91,57 @@
 
   .grid {
     grid-template-columns: repeat(2, 1fr); /* Only 2 items per row */
+    gap: 0.25rem; /* Reduced gap for smaller screens */
+    margin-top: 30px; /* Adjusted margin */
+  }
+}
+@media (max-width: 646px) {
+  .inputfield {
+    width: 60%; /* Further reduce width */
+    font-size: 14px; /* Smaller font size */
+    padding: 6px 10px; /* Smaller padding */
+  }
+
+  .searchButton,
+  .wishluckbutton {
+    font-size: 14px; /* Smaller font size */
+    padding: auto;
+    width: 30;
+    margin-left: 10px; /* Added margin to create more space between buttons */
+    top: 15%;
+  }
+  .searchButton {
+    left: 35%;
+  }
+
+  .grid {
+    grid-template-columns: repeat(1, 1fr); /* Only 2 items per row */
+    gap: 0.25rem; /* Reduced gap for smaller screens */
+    margin-top: 30px; /* Adjusted margin */
+  }
+}
+
+@media (max-width: 500px) {
+  .inputfield {
+    width: 60%; /* Further reduce width */
+    font-size: 14px; /* Smaller font size */
+    padding: 6px 10px; /* Smaller padding */
+  }
+
+  .searchButton,
+  .wishluckbutton {
+    font-size: 14px; /* Smaller font size */
+    padding: auto;
+    width: 30;
+    margin-left: 10px; /* Added margin to create more space between buttons */
+    top: 17%;
+  }
+  .searchButton {
+    left: 35%;
+  }
+
+  .grid {
+    grid-template-columns: repeat(1, 1fr); /* Only 2 items per row */
     gap: 0.25rem; /* Reduced gap for smaller screens */
     margin-top: 30px; /* Adjusted margin */
   }

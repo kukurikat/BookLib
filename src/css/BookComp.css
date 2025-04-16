@@ -4,9 +4,9 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   text-align: center;
-  width: 90%; /* Adjust width to be responsive */
+  width: 300px; /* Adjust width to be responsive */
   max-width: 360px; /* Limit maximum width */
-  height: auto; /* Allow height to adjust */
+  height: 400px; /* Allow height to adjust */
   aspect-ratio: 4 / 5; /* Maintain aspect ratio */
   margin: 24px auto;
   display: flex;
@@ -15,6 +15,7 @@
   justify-content: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5);
+  position: relative;
 }
 
 .bookCard:hover {
@@ -25,25 +26,40 @@
 .image {
   width: 80%; /* Make image responsive */
   max-width: 250px; /* Limit maximum width */
-  height: auto; /* Maintain aspect ratio */
+  height: 250px; /* Maintain aspect ratio */
   display: block;
-  padding-top: 10px;
+  padding-top: 0px;
   align-content: center;
 }
 
 .title {
-  padding: 1rem; /* Use relative units */
-  font-size: 1.25rem; /* Use relative font size */
+  font-size: 1.15rem; /* Use relative font size */
   color: #f8c080;
   font-family: "Serif";
   font-weight: 500;
 }
-
+.date {
+  padding: 0.1rem; /* Reduce padding */
+  font-size: 1rem; /* Use relative font size */
+  color: #f8c080;
+  font-family: "Serif";
+  font-weight: 400;
+  margin-top: 0.25rem; /* Reduce spacing below the title */
+}
+.authors {
+  font-size: 1rem; /* Use relative font size */
+  color: #f8c080;
+  font-family: "Serif";
+  font-weight: 400;
+  margin-top: 0.25rem; /* Reduce spacing below the date */
+  text-align: center; /* Center align the text */
+  line-height: 1.25; /* Reduce line height for tighter spacing */
+}
 .likeButton,
 .likedButton {
-  position: relative;
-  top: 1rem;
-  left: auto; /* Center align */
+  position: absolute; /* Use absolute positioning */
+  top: 1rem; /* Position near the top */
+  right: 1rem; /* Position near the right */
   color: #f8c080;
   font-size: 1.5rem;
   padding: 0.5rem;
@@ -58,23 +74,17 @@
 }
 
 .likedButton {
+  z-index: 10;
+  opacity: 1;
   background-color: rgb(171, 53, 53);
   color: aliceblue;
 }
 
 /* Media query for smaller screens */
-@media (max-width: 600px) {
-  .bookCard {
-    width: 95%; /* Adjust width for smaller screens */
-  }
-
+@media (max-width: 800px) {
   .image {
     width: 60%; /* Shrink image for smaller screens */
     max-width: 150px; /* Reduce maximum width */
-  }
-
-  .title {
-    font-size: 1rem; /* Reduce font size */
   }
 
   .likeButton,
