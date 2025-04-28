@@ -1,0 +1,43 @@
+.signindiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh; /* Reduced height */
+  width: 300px; /* Set a narrower width */
+  background-color: #f0f0f0;
+  border-radius: 10px; /* Smaller rounded edges */
+  padding: 10px; /* Reduced padding */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for better appearance */
+  margin: auto; /* Centers the element horizontally and vertically */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Ensures perfect centering */
+}
+
+.signindiv p {
+  color: #575757; /* Grayish color */
+  font-family: "Verdana", sans-serif; /* Changed to another font */
+  font-size: 14px; /* Adjust font size */
+  line-height: 1.5; /* Improve readability */
+}
+.button {
+  background-color: #a8a8a8; /* Same color as text */
+  color: #1f1f1f; /* Black text inside */
+  border: 1px solid #777777; /* Add outline around text */
+  padding: 10px 20px; /* Add padding for better appearance */
+  border-radius: 5px; /* Slightly rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 14px; /* Set font size */
+}
+.signindiv input {
+  width: 100%; /* Make input elements take full width of the container */
+  padding: 8px; /* Adjust padding for better appearance */
+  font-size: 14px; /* Set font size */
+  color: #575757; /* Grayish color for text */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 5px; /* Slightly rounded corners */
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
+  margin-bottom: 10px; /* Add spacing between inputs */
+}

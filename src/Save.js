@@ -1,34 +1,101 @@
-let arrOfObj = [];
+let user = {
+  name: "",
+  email: "",
+  password: "",
+  books: [],
+};
+export function setUsers(name, email, password, isLogin) {
+  const arrofUsers = localStorage.getItem("book")
+    ? JSON.parse(localStorage.getItem("book"))
+    : [];
+  if (!isLogin) {
+    if (arrofUsers.findIndex((o) => o.name == name) == -1) {
+      user.name = name;
+      user.email = email;
+      user.password = password;
+      arrofUsers.push(user);
+      localStorage.setItem("book", JSON.stringify(arrofUsers));
+    } else {
+      alert("User already exists");
+    }
+  } else {
+    const userIndex = arrofUsers.findIndex((o) => o.name == name);
+    if (userIndex != -1) {
+      user = arrofUsers[userIndex];
+      if (user.password == password) {
+        console.log(user);
+        alert("Login successful");
+      } else {
+        alert("Wrong password");
+      }
+    } else {
+      alert("User not found");
+    }
+  }
+}
 
 export function saveToFav(book) {
-  arrOfObj.push(book);
-  localStorage.setItem("book", JSON.stringify(arrOfObj));
+  const arrofUsers = localStorage.getItem("book")
+    ? JSON.parse(localStorage.getItem("book"))
+    : [];
+  if (!user.books) {
+    user.books = [];
+  }
+  user.books.push(book);
+  const userIndex = arrofUsers.findIndex((o) => o.name == user.name);
+  if (userIndex != -1) {
+    arrofUsers[userIndex] = user;
+  } else {
+    alert("sign in first");
+  }
+  console.log(user);
+  localStorage.setItem("book", JSON.stringify(arrofUsers));
 }
 
 export function checkIfliked(book) {
-  const arr = localStorage.getItem("book")
+  const arrofUsers = localStorage.getItem("book")
     ? JSON.parse(localStorage.getItem("book"))
     : [];
-  if (arr.findIndex((o) => o.selfLink == book.selfLink) == -1) {
-    return false;
-  } else {
-    return true;
+  const userIndex = arrofUsers.findIndex((o) => o.name == user.name);
+  if (userIndex != -1) {
+    const bookIndex = arrofUsers[userIndex].books.findIndex(
+      (o) => o.id == book.id
+    );
+    if (bookIndex != -1) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
 export function deleteFromSaved(book) {
-  const arr = localStorage.getItem("book")
+  const arrofUsers = localStorage.getItem("book")
     ? JSON.parse(localStorage.getItem("book"))
     : [];
-  arrOfObj = arr;
-  console.log(arrOfObj.selfLink);
-  console.log(book.selfLink);
-  arrOfObj = arrOfObj.filter((obj) => obj.selfLink != book.selfLink);
-  localStorage.setItem("book", JSON.stringify(arrOfObj));
+
+  if (userIndex != -1) {
+    const bookIndex = arrofUsers[userIndex].books.findIndex(
+      (o) => o.id == book.id
+    );
+    if (bookIndex != -1) {
+      arrofUsers[userIndex].books.splice(bookIndex, 1);
+      localStorage.setItem("book", JSON.stringify(arrofUsers));
+    } else {
+      alert("Book not found in saved books");
+    }
+  }
 }
 
 export function returnArr() {
-  arrOfObj = localStorage.getItem("book")
+  const arrofUsers = localStorage.getItem("book")
     ? JSON.parse(localStorage.getItem("book"))
     : [];
-  return arrOfObj;
+  if (!user.books) {
+    user.books = [];
+  }
+  const userIndex = arrofUsers.findIndex((o) => o.name == user.name);
+  if (userIndex != -1) {
+    return arrofUsers[userIndex].books;
+  }
+  return [];
 }

@@ -12,6 +12,9 @@ function Navbar() {
       <Link className="FavouritesButton" to="/favourites">
         Favourites
       </Link>
+      <Link className="loginbutton" to="/login">
+        login
+      </Link>
     </div>
   );
 }
