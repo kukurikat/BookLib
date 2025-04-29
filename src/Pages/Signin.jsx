@@ -15,7 +15,6 @@ function Signin() {
 
   useEffect(() => {
     if (user.password && user.password === user.passwordCheck) {
-      alert("Passwords match");
       setUsers(user.name, user.email, user.password, false);
       document.getElementById("name").value = "";
       document.getElementById("email").value = "";

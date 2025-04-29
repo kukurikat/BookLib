@@ -12,7 +12,6 @@ function Login() {
 
   const handleSubmit = () => {
     if (user.password) {
-      alert("Login successful");
       setUsers(user.name, " ", user.password, true);
       document.getElementById("name").value = "";
       document.getElementById("password").value = "";

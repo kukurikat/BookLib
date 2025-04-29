@@ -9,10 +9,14 @@ export function setUsers(name, email, password, isLogin) {
     ? JSON.parse(localStorage.getItem("book"))
     : [];
   if (!isLogin) {
-    if (arrofUsers.findIndex((o) => o.name == name) == -1) {
+    if (
+      arrofUsers.findIndex((o) => o.name == name) == -1 &&
+      arrofUsers.findIndex((o) => o.email == email) == -1
+    ) {
       user.name = name;
       user.email = email;
       user.password = password;
+      user.books = [];
       arrofUsers.push(user);
       localStorage.setItem("book", JSON.stringify(arrofUsers));
     } else {
@@ -21,10 +25,10 @@ export function setUsers(name, email, password, isLogin) {
   } else {
     const userIndex = arrofUsers.findIndex((o) => o.name == name);
     if (userIndex != -1) {
-      user = arrofUsers[userIndex];
-      if (user.password == password) {
+      console.log(password);
+      if (arrofUsers[userIndex].password === password) {
         console.log(user);
-        alert("Login successful");
+        user = arrofUsers[userIndex];
       } else {
         alert("Wrong password");
       }
